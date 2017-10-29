@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser')
@@ -8,6 +7,9 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 
+const app = express();
+require('dotenv').config();
+
 const port = process.env.PORT || 3002;
 
 app.set('views', path.join(__dirname, 'views'));
@@ -15,7 +17,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-require('dotenv').config();
+
 
 app.get('/', (req, res) => {
   res.render('index');
