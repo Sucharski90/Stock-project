@@ -15,12 +15,11 @@ userController.index = (req, res) => {
 };
 userController.create = (req,res) => {
   User.create({
-    name:   req.body.name,
-    num:    req.body.num,
-    exp:    req.body.exp,
-    height: req.body.height,
-    weight: req.body.weight,
-    type:   req.body.type
+    firstname:   req.body.name,
+    lastname:    req.body.num,
+    username:    req.body.exp,
+    email: req.body.height,
+    id: req.body.weight
   }).then((user)=>{
     res.send(user)
   }).catch(err=>{
@@ -41,12 +40,10 @@ userController.show = (req,res) => {
 }
 userController.update = (req,res) => {
   User.update(
-    [req.body.name,
-    req.body.num,
-    req.body.exp,
-    req.body.height,
-    req.body.weight,
-    req.body.type,
+    [req.body.username,
+    req.body.email,
+    req.body.firstname,
+    req.body.lastname,
     req.body.id])
   .then((user) => {
     res.redirect('back')
