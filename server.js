@@ -7,11 +7,17 @@ const methodOverride = require('method-override')
 
 const port = process.env.PORT || 3002;
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.render('index');
 });
+
+const userRouter = require('./routes/stock_routes');
+app.use('/users', userRouter);
 
 app.listen(port, () => {
     console.log(`Living here on port ${port}`);

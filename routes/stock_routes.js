@@ -1,7 +1,7 @@
 const express = require('express')
 
 const stockRoutes = express.Router()
-const stockController = require('../controllers/pokemon-controller')
+const stockController = require('../controllers/stock-controller')
 
 stockRoutes.get('/',stockController.index)
 stockRoutes.post('/',stockController.create)
