@@ -1,6 +1,6 @@
-const user = require('../models/user')
+const User = require('../models/user')
 
-const User = {}
+const userController = {}
 
 userController.index = (req, res) => {
   User.findAll().then((user) => {

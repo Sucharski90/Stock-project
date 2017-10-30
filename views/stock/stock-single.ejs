@@ -1,0 +1,30 @@
+
+<img src="/img/pokemon/<%= data.name %>.jpg">
+  <ul>
+    <b><%= data.name %></b>
+    <li>stock symbol: <%= data.text %></li>
+    <li>company name: <%= data.text %></li>
+    <li>: <%= data.weight %></li>
+    <li>current price: <%= data.currentPrice %></li>
+    <li>Type: <%= data.type %></li>
+  </ul>
+  <br><br>
+  <form method="POST" action="/pokemon?_method=PUT">
+    <!-- <label>ID</label> -->
+    <input name="id" type="hidden" value="<%= data.id%>"><br>
+    <label>Name</label>
+    <input name="name" value="<%= data.name%>"><br>
+    <label>Number</label>
+    <input name="num" value="<%= data.num%>"><br>
+    <label>Base Experience</label>
+    <input name="exp" value="<%= data.exp%>"><br>
+    <label>Height</label>
+    <input name="height" value="<%= data.height%>"><br>
+    <label>Weight</label>
+    <input name="weight" value="<%= data.weight%>"><br>
+    <label>Type</label>
+    <input name="type" value="<%= data.type%>"><br>
+    <br>
+    <button type="submit">Save Changes</button>
+
+  </form>
