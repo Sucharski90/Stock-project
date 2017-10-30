@@ -15,11 +15,11 @@ userController.index = (req, res) => {
 };
 userController.create = (req,res) => {
   User.create({
-    firstname:   req.body.name,
-    lastname:    req.body.num,
-    username:    req.body.exp,
-    email: req.body.height,
-    id: req.body.weight
+    firstname:   req.body.firstname,
+    lastname:    req.body.lastname,
+    username:    req.body.username,
+    email: req.body.email,
+    id: req.body.id
   }).then((user)=>{
     res.send(user)
   }).catch(err=>{

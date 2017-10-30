@@ -4,10 +4,10 @@ const db = require('../db/config')
 const User = {}
 
 User.findAll = () =>
-  db.query('SELECT * FROM users')
+  db.query('SELECT * FROM stockusers')
 
 User.findById = id =>
-  db.one('SELECT * FROM users WHERE id = $1',[id])
+  db.one('SELECT * FROM stockusers WHERE id = $1',[id])
 
 User.create = user => db.one(`
   INSERT INTO users (
@@ -26,13 +26,13 @@ User.create = user => db.one(`
     $/lastname/
   )
   RETURNING *`,
-  users
+  stockusers
 )
 
 User.delete = id =>
-  db.none(`DELETE FROM users WHERE id=$1`,id)
+  db.none(`DELETE FROM stockusers WHERE id=$1`,id)
 
-User.update = users =>
+User.update = stockusers =>
   db.one(`
     UPDATE users SET
       id=$1,
@@ -42,7 +42,7 @@ User.update = users =>
       firstname=$5,
       lastname=$6
     WHERE
-      id=$7
+      id=$1
     RETURNING *`,
     users)
 

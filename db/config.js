@@ -9,7 +9,7 @@ const pgp = require('pg-promise')(options)
 function setDatabase(){
   if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV){
     return pgp({
-      database: 'pokemon_crud_tc',
+      database: 'stockusers',
       port: 5432,
       host: 'localhost'
     })

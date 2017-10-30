@@ -12,11 +12,11 @@ require('dotenv').config();
 
 const port = process.env.PORT || 3002;
 
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 
 app.use(express.static('public'));
-
 
 
 app.get('/', (req, res) => {

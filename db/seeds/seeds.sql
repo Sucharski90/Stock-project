@@ -1,3 +1,3 @@
-INSERT INTO pokemon (name, num, exp, height, weight, type) VALUES
-('Bulbasaur',1,64,7,69,'poison'),
-('Ivysaur',2,10,142,130,'poison')
+INSERT INTO user (firstname, lastname, id, username, email) VALUES
+('Matt', 'Sucharski', 1,'Sucharski90','a7x1013@aol.com'),
+('Sam', 'Keller', 2, 'Keller90', 'sammielynn28@yahoo.com')

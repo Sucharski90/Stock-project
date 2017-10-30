@@ -1,17 +1,17 @@
 const express = require('express')
 
-const stockRoutes = express.Router()
-const stockController = require('../controllers/stock-controller')
+const userRoutes = express.Router()
+const userController = require('../controllers/user-controller')
 
-stockRoutes.get('/',stockController.index)
-stockRoutes.post('/',stockController.create)
+userRoutes.get('/',userController.index)
+userRoutes.post('/',userController.create)
 
-stockRoutes.get('/add', (req,res)=>{
-  res.render('stock/stock-add',{})
+userRoutes.get('/add', (req,res)=>{
+  res.render('user/user-add',{})
 })
 
-stockRoutes.get('/:id', stockController.show)
-stockRoutes.put('/', stockController.update)
-stockRoutes.delete('/:id', stockController.delete)
+userRoutes.get('/:id', userController.show)
+userRoutes.put('/', userController.update)
+userRoutes.delete('/:id', userController.delete)
 
-module.exports = stockRoutes
+module.exports = userRoutes
