@@ -6,8 +6,18 @@ const User = {}
 User.findAll = () =>
   db.query('SELECT * FROM stockusers')
 
+//not sure if line 10 - 18 are correct
 User.findById = id =>
   db.one('SELECT * FROM stockusers WHERE id = $1',[id])
+
+  User.findByUserName = stockuserName => {
+    return db.oneOrNone(`
+      SELECT * FROM stockusers
+      WHERE username = $1
+    `, [stockuserName]);
+  };
+
+
 
 User.create = user => db.one(`
   INSERT INTO users (

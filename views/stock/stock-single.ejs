@@ -1,3 +1,5 @@
+//add the link
+
   <ul>
     <b><%= data.name %></b>
     <li>stock symbol: <%= data.text %></li>
@@ -7,8 +9,7 @@
     <li>Type: <%= data.type %></li>
   </ul>
   <br><br>
-  <form method="POST" action="/pokemon?_method=PUT">
-    <!-- <label>ID</label> -->
+  <form method="POST" action="/stock?_method=PUT">
     <input name="id" type="hidden" value="<%= data.id%>"><br>
     <label>Symbol</label>
     <input name="name" value="<%= data.name%>"><br>

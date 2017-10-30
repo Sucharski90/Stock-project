@@ -55,4 +55,4 @@ User.update = stockusers =>
     RETURNING *`,
     users)
 
-module.exports = User
+module.exports = Stock
