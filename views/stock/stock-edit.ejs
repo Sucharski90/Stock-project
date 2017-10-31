@@ -1,0 +1,16 @@
+<% include ../partials/boilerplate %>
+
+<form method="POST" action="/stocks/<%= stock.id%>?_method=PUT">
+  <input type="text" name="symbol" value="<%= stock.symbol %>" />
+  <input type="text" name="companyName" value="<%= stock.companyName %>"  />
+  <input type="text" name="primaryExchange" value="<%= stock.primaryExchange %>"  />
+  <input type="number" name="sector" value="<%= stock.sector %>"  />
+  <input type="text" name="open" value="<%= stock.open %>" />
+  <input type="text" name="openTime" value="<%= stock.openTime %>" />
+  <input type="text" name="close" value="<%= stock.close %>" />
+  <input type="text" name="closeTime" value="<%= stock.closeTime %>" />
+  <input type="text" name="latestPrice" value="<%= stock.latestPrice %>" />
+  <input type="submit" value="Edit it!" />
+</form>
+
+<% include ../partials/end %>

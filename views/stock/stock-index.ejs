@@ -1,25 +1,7 @@
 <% include ../partials/boilerplate %>
-<div class="">
-  <div class="index">
 
-    <div class="add-button">
-      <a href="/stock/add">Get Stock</a>
-    </div>
+<% stocks.forEach(stock => { %>
+  <% include ../partials/stock %>
+<% }) %>
 
-    <div class="stocklist">
-      <ul>
-        <% for (let stock of data){ %>
-          <li>
-            <a href="/stock/<%= stock.id %>">
-              <b><%= stock.name %></b>
-            </a> -
-            <form method="POST" action="/stock/<%= stock.id %>?_method=DELETE">
-              <button type="submit">Delete</button>
-            </form>
-          </li>
-        <% } %>
-      </ul>
-    </div>
-  </div>
-</div>
 <% include ../partials/end %>

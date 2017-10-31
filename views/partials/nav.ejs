@@ -1,0 +1,19 @@
+<header>
+  <div class="logo">
+    <h1>My Todo App</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/todos">All Todos</a></li>
+      <li><a href="/todos/new">Add New Todo</a></li>
+      <% if (auth) { %>
+        <li><a href="/user">Dashboard</a><li>
+        <li><a href="/auth/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/auth/register">Register</a></li>
+        <li><a href="/auth/login">Login</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

@@ -21,13 +21,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
-app.use(session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true,
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({
+//   secret: process.env.SECRET_KEY,
+//   resave: false,
+//   saveUninitialized: true,
+// }));
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 app.use(express.static('public'));
 
@@ -48,10 +48,10 @@ app.get('/stocks', (req, res) => {
     res.send('Stocks');
 });
 
-const authRoutes = require('./routes/auth-routes');
-app.use('/auth', authRoutes);
-const userRoutes = require('./routes/user-routes');
-app.use('/user', userRoutes);
+//const authRoutes = require('./routes/auth-routes');
+//app.use('/auth', authRoutes);
+//const userRoutes = require('./routes/user-routes');
+//app.use('/user', userRoutes);
 
 //works
 app.use('*', (req, res) => {

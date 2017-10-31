@@ -31,7 +31,7 @@ stockController.create = (req, res) => {
 stockController.show = (req,res) => {
   User.findById(req.params.id)
     .then((stock) => {
-      res.render('stock/stock-single',{
+      res.render('stock/stock-one',{
         data: stock
       })
     }).catch(err => {
@@ -40,8 +40,25 @@ stockController.show = (req,res) => {
     })
 }
 
-//did not add update because it will be from the api
 
+stockController.update = (req,res) => {
+  Stock.update(
+    [req.body.symbol,
+    req.body.companyName,
+    req.body.primaryExchange,
+    req.body.sector,
+    req.body.open,
+    req.body.openTime,
+    req.body.close,
+    req.body.closeTime,
+    req.body.latestPrice])
+  .then((pokemon) => {
+    res.redirect('back')
+  }).catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
+}
 
 stockController.delete = (req,res) => {
   stock.delete(req.params.id).then(

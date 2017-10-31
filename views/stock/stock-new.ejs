@@ -1,0 +1,16 @@
+<% include ../partials/boilerplate %>
+
+<form method="POST" action="/stocks">
+  <input type="text" name="symbol" placeholder="Symbol " />
+  <input type="text" name="companyName" placeholder="CompanyName "  />
+  <input type="text" name="primaryExchange" placeholder="Primary Exchange "  />
+  <input type="text" name="sector" placeholder="Sector "  />
+  <input type="number" name="open" placeholder="Open " />
+  <input type="number" name="openTime" placeholder="Open Time " />
+  <input type="number" name="close" placeholder="Close " />
+  <input type="number" name="closeTime" placeholder="Close Time " />
+  <input type="number" name="latestPrice" placeholder="Latest Price " />
+  <input type="submit" value="Add it!" />
+</form>
+
+<% include ../partials/end %>
