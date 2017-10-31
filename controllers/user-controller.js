@@ -62,6 +62,7 @@ userController.delete = (req,res) => {
     })
 }
 
+//used for the auth
 userController.create = (req, res) => {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
@@ -82,7 +83,7 @@ userController.create = (req, res) => {
   });
 }
 
-module.exports = userController;
+
 
 userController.index = (req, res) => {
   res.json({
