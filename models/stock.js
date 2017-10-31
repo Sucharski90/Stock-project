@@ -70,6 +70,14 @@ Stock.create({
  })
 */
 
+Stock.destroy(3)
+ .then(stocks => {
+   return Stock.findAll()
+ })
+ .then(stocks => {
+   console.log(stocks)
+ })
+
 
 
 
