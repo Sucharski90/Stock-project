@@ -25,13 +25,18 @@ stockController.create = (req, res) => {
     close:  req.body.close,
     closeTime: req.body.closeTime,
     latestPrice: req.body.latestPrice
-  })
-}
+  }).then(stock => {
+    res.redirect(`/stocks/${stock.id}`)
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({error: err});
+  });
+};
 
 stockController.show = (req,res) => {
-  User.findById(req.params.id)
+  Stock.findById(req.params.id)
     .then((stock) => {
-      res.render('stock/stock-one ',{
+      res.render('stock/stock-show',{
         data: stock
       })
     }).catch(err => {
@@ -52,7 +57,7 @@ stockController.update = (req,res) => {
     req.body.close,
     req.body.closeTime,
     req.body.latestPrice])
-  .then((pokemon) => {
+  .then((stock) => {
     res.redirect('back')
   }).catch(err => {
       console.log(err)
