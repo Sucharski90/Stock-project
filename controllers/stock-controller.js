@@ -3,10 +3,10 @@ const Stock = require('../models/stock')
 const stockController = {}
 
 stockController.index = (req, res) => {
-  Stock.findAll().then((stock) => {
-    console.log(stock)
+  Stock.findAll().then((stocks) => {
+    console.log(stocks)
     res.render('stock/stock-index', {
-      data: stock,
+      stocks: stocks,
     })
   }).catch((err) => {
       console.log(err);
@@ -18,7 +18,7 @@ stockController.create = (req, res) => {
   Stock.create({
     symbol: req.body.symbol,
     companyName: req.body.companyName,
-    primaryExchange: req.body.companyName,
+    primaryExchange: req.body.primaryExchange,
     sector:  req.body.sector,
     open: req.body.open,
     openTime: req.body.openTime,
@@ -31,7 +31,7 @@ stockController.create = (req, res) => {
 stockController.show = (req,res) => {
   User.findById(req.params.id)
     .then((stock) => {
-      res.render('stock/stock-one',{
+      res.render('stock/stock-one ',{
         data: stock
       })
     }).catch(err => {
@@ -68,13 +68,5 @@ stockController.delete = (req,res) => {
     })
 }
 
-stockController.index = (req, res) => {
-  res.json({
-    message: 'Put a stock profile page on this route',
-    data: {
-      stock: req.stock,
-    },
-  });
-};
 
 module.exports = stockController

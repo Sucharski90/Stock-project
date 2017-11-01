@@ -9,5 +9,7 @@ stockRoutes.get('/new', (req,res)=>{
 })
 stockRoutes.get('/:id', stockController.show)
 stockRoutes.post('/',stockController.create)
-stockRouter.get('/:id/edit', stockController.edit);
-stockRouter.put('/:id', stockController.update);
+//stockRoutes.get('/:id/edit', stockController.edit);
+stockRoutes.put('/:id', stockController.update);
+
+module.exports = stockRoutes;

@@ -25,10 +25,10 @@ Stock.destroy = (id) => {
     WHERE id = $1
     `,[id]);
   };
-/*
-Stock.update = stocks =>
-  db.one(`
-    UPDATE users SET
+
+Stock.update = (stocks, id) => {
+  return db.one(`
+    UPDATE stocks SET
       symbol=$1,
       companyName=$2,
       primaryExchange=$3,
@@ -38,10 +38,11 @@ Stock.update = stocks =>
       close=$7,
       closeTime=$8,
       latestPrice=$9
-    WHERE
-      id=$1
-    RETURNING *`,
-    stocks)
+    WHERE id=$10
+    RETURNING *
+    `, [stocks.symbol, stocks.companyName, stocks.primaryExchange, stocks.sector, stocks.open, stocks.openTime, stocks.close, stocks.closeTime, stocks.latestPrice, id]);
+  };
+
 /*WORKS
 Stock.findAll().then(stocks => {
   console.log('stocks', stocks);
@@ -68,9 +69,8 @@ Stock.create({
  .then(stocks => {
    console.log(stocks)
  })
-*/
 
-Stock.destroy(3)
+Stock.destroy()
  .then(stocks => {
    return Stock.findAll()
  })
@@ -79,7 +79,26 @@ Stock.destroy(3)
  })
 
 
+Stock.update({
+  symbol: 'bbb',
+  companyName: 'eee',
+  primaryExchange: 'nasdaq',
+  sector: 'rrr',
+  open: 5,
+  openTime: 1,
+  close: 7,
+  closeTime: 2,
+  latestPrice: 4
+},2)
+ .then(stocks => {
+   return Stock.findAll()
+ })
+ .then(stocks => {
+   console.log(stocks)
+ })
 
+
+*/
 
 
 

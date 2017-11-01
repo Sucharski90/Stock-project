@@ -36,17 +36,14 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-const userRouter = require('./routes/stock_routes');
-app.use('/users', userRouter);
+const stockRouter = require('./routes/stock-routes');
+app.use('/stocks', stockRouter);
 
 app.listen(port, () => {
     console.log(`Living here on port ${port}`);
 });
 
-//works if localhost:3002/stocks is in browser
-app.get('/stocks', (req, res) => {
-    res.send('Stocks');
-});
+
 
 //const authRoutes = require('./routes/auth-routes');
 //app.use('/auth', authRoutes);
