@@ -45,6 +45,17 @@ stockController.show = (req,res) => {
     })
 }
 
+stockController.edit = (req,res) => {
+  Stock.findById(req.params.id)
+    .then((stock) => {
+      res.render('stock/stock-edit',{
+        data: stock
+      })
+    }).catch(err => {
+      console.log(err)
+      res.status(500).json(err)
+    })
+}
 
 stockController.update = (req,res) => {
   Stock.update(
@@ -58,7 +69,7 @@ stockController.update = (req,res) => {
     req.body.closeTime,
     req.body.latestPrice])
   .then((stock) => {
-    res.redirect('back')
+    res.redirect('/stocks')
   }).catch(err => {
       console.log(err)
       res.status(500).json(err)
@@ -66,8 +77,8 @@ stockController.update = (req,res) => {
 }
 
 stockController.delete = (req,res) => {
-  stock.delete(req.params.id).then(
-    res.redirect('/stock')).catch(err => {
+  Stock.destroy(req.params.id).then(
+    res.redirect('/stocks')).catch(err => {
       console.log(err)
       res.status(500).json(err)
     })

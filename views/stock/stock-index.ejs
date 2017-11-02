@@ -13,6 +13,9 @@
   <h3>Close: <%=stock.close  %></h3>
   <h3>Close Time: <%=stock.closeTime  %></h3>
   <h3>Latest Price: <%=stock.latestPrice  %></h3>
+  <form method="POST" action="/stocks/<%=stock.id%>?_method=DELETE">
+    <input type="submit" value="Delete" />
+  </form>
 </div>
 </div>
 <% }) %>

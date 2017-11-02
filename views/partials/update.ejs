@@ -1,0 +1,37 @@
+<% include ../partials/boilerplate %>
+
+
+<ul>
+  <b><%= data.name %></b>
+  <li>stock symbol: <%= data.text %></li>
+  <li>company name: <%= data.text %></li>
+  <li>sector: <%= data.sector %></li>
+  <li>current price: <%= data.currentPrice %></li>
+  <li>Type: <%= data.type %></li>
+</ul>
+<br><br>
+<form method="POST" action="/stock?_method=PUT">
+  <input name="id" type="hidden" value="<%= data.id%>"><br>
+  <label>Symbol</label>
+  <input name="name" value="<%= data.name%>"><br>
+  <label>Company Name</label>
+  <input name="num" value="<%= data.num%>"><br>
+  <label>Primary Exchange</label>
+  <input name="exp" value="<%= data.exp%>"><br>
+  <label>Sector</label>
+  <input name="height" value="<%= data.height%>"><br>
+  <label>Open</label>
+  <input name="weight" value="<%= data.weight%>"><br>
+  <label>Open Time</label>
+  <input name="type" value="<%= data.type%>"><br>
+  <label>Close</label>
+  <input name="type" value="<%= data.type%>"><br>
+  <label>Close Time</label>
+  <input name="type" value="<%= data.type%>"><br>
+  <label>Latest Price</label>
+  <input name="type" value="<%= data.type%>"><br>
+  <br>
+  <button type="submit">Save Changes</button>
+
+</form>
+<% include ../partials/end %>
