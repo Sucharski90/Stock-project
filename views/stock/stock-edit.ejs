@@ -1,15 +1,15 @@
 <% include ../partials/boilerplate %>
 
 <form method="POST" action="/stocks?_method=PUT">
-  <input type="text" name="symbol" placeholder="<%= data.stock.symbol%>" />
-  <input type="text" name="companyName" placeholder="<%= data.stock.symbol%>"  />
-  <input type="text" name="primaryExchange" placeholder="<%= data.stock.symbol%>"  />
-  <input type="text" name="sector" placeholder="<%= data.stock.symbol%>"  />
-  <input type="number" name="open" placeholder="<%= data.stock.symbol%>" />
-  <input type="number" name="openTime" placeholder="<%= data.stock.symbol%>" />
-  <input type="number" name="close" placeholder="<%= data.stock.symbol%>" />
-  <input type="number" name="closeTime" placeholder="<%= data.stock.symbol%>" />
-  <input type="number" name="latestPrice" placeholder="<%= data.stock.symbol%>" />
+  <input type="text" name="symbol" value="<%= stock.symbol%>" />
+  <input type="text" name="companyName" value="<%= stock.companyname%>"  />
+  <input type="text" name="primaryExchange" value="<%= stock.priamryexchange%>"  />
+  <input type="text" name="sector" value="<%= stock.sector%>"  />
+  <input type="number" name="open" value="<%= stock.open%>" />
+  <input type="number" name="openTime" value="<%= stock.opentime%>" />
+  <input type="number" name="close" value="<%= stock.close%>" />
+  <input type="number" name="closeTime" value="<%= stock.closetime%>" />
+  <input type="number" name="latestPrice" value="<%= stock.latestprice%>" />
   <input type="submit" value="Add it!" />
 </form>
 <% include ../partials/end %>

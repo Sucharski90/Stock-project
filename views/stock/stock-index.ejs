@@ -5,17 +5,18 @@
 <% stocks.forEach(stock => { %>
 <div class="stock">
   <h3>id: <%=stock.id  %></h3>
-  <h3>Company Name: <%=stock.companyName %></h3>
-  <h3>Primary Exchange: <%=stock.primaryExchange  %></h3>
+  <h3>Company Name: <%=stock.companyname %></h3>
+  <h3>Primary Exchange: <%=stock.primaryexchange  %></h3>
   <h3>Sector: <%=stock.sector  %></h3>
   <h3>Open: <%=stock.open  %></h3>
-  <h3>Open Time: <%=stock.openTime  %></h3>
+  <h3>Open Time: <%=stock.opentime  %></h3>
   <h3>Close: <%=stock.close  %></h3>
-  <h3>Close Time: <%=stock.closeTime  %></h3>
-  <h3>Latest Price: <%=stock.latestPrice  %></h3>
+  <h3>Close Time: <%=stock.closetime  %></h3>
+  <h3>Latest Price: <%=stock.latestprice  %></h3>
   <form method="POST" action="/stocks/<%=stock.id%>?_method=DELETE">
     <input type="submit" value="Delete" />
   </form>
+  <a href="/stocks/<%=stock.id  %>/edit">Edit</a>
 </div>
 </div>
 <% }) %>

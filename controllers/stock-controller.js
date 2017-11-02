@@ -49,7 +49,7 @@ stockController.edit = (req,res) => {
   Stock.findById(req.params.id)
     .then((stock) => {
       res.render('stock/stock-edit',{
-        data: stock
+        stock: stock
       })
     }).catch(err => {
       console.log(err)
